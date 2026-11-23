@@ -1,0 +1,7 @@
+node_modules
+dist
+.qa
+.wbapp_*.genie
+.workbuddy
+.DS_Store
+*.log

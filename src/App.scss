@@ -1,0 +1,47 @@
+#root,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Full-bleed stage for the WebGL wall; the DOM chrome floats above it. */
+.stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.stage > div:first-of-type {
+  position: absolute;
+  inset: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

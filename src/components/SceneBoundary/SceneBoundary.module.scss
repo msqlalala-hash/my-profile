@@ -1,0 +1,79 @@
+/* Text-only fallback: keeps the shell at full viewport, never a stand-in image. */
+
+.fallback {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background-color: #f4f1e6;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(120, 152, 198, 0.22) 0px,
+      rgba(120, 152, 198, 0.22) 1px,
+      transparent 1px,
+      transparent 32px
+    ),
+    radial-gradient(
+      120% 90% at 50% 0%,
+      rgba(255, 255, 255, 0.9),
+      rgba(233, 229, 214, 0.9)
+    );
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #2f2b27;
+  z-index: 10;
+}
+
+.sheet {
+  max-width: 30rem;
+  padding: 34px 30px 30px;
+  background: rgba(251, 249, 242, 0.92);
+  border: 1.5px solid rgba(47, 43, 39, 0.4);
+  border-radius: 3px;
+  box-shadow: 0 12px 30px rgba(47, 43, 39, 0.14);
+  transform: rotate(-0.5deg);
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 4px 0 18px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: rgba(47, 43, 39, 0.6);
+}
+
+.body {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.link {
+  display: inline-block;
+  min-height: 44px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2f2b27;
+  text-decoration: none;
+  border: 1.5px solid rgba(47, 43, 39, 0.45);
+  border-radius: 22px;
+  background: #fdfcf7;
+}
+
+.link:hover {
+  background: #f0e7d2;
+}
+
+.link:focus-visible {
+  outline: 2px dashed rgba(47, 43, 39, 0.85);
+  outline-offset: 3px;
+}
