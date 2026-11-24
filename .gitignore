@@ -1,5 +1,7 @@
 node_modules
 dist
+pages-build
+dist-pages
 .qa
 .wbapp_*.genie
 .workbuddy

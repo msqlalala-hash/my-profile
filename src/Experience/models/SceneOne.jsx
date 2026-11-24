@@ -1,12 +1,13 @@
 import React, { useRef, useMemo } from "react";
-import { useGLTF, useKTX2 } from "@react-three/drei";
+import { useKTX2 } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useModel } from "../../lib/useModel";
 import { sceneTime, sceneDelta } from "../../lib/motion";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF("/models/scene_1.glb");
+  const { nodes, materials } = useModel("/models/scene_1.glb");
 
   const mrsPandaRef = useRef();
 
@@ -305,4 +306,4 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload("/models/scene_1.glb");
+useModel.preload("/models/scene_1.glb");

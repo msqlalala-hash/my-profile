@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useModel } from "../../lib/useModel";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
 import { sceneTime, sceneDelta } from "../../lib/motion";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF("/models/scene_4.glb");
+  const { nodes, materials } = useModel("/models/scene_4.glb");
   const scene_4 = useKTX2Texture("/textures/scene_4.ktx2");
 
   const ghostRef = useRef();
@@ -141,4 +141,4 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload("/models/scene_4.glb");
+useModel.preload("/models/scene_4.glb");

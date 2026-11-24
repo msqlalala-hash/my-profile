@@ -1,5 +1,5 @@
 import React, { useRef, useState, useMemo } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useModel } from "../../lib/useModel";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useScrollCurve } from "../hooks/useScrollCurve";
 import * as THREE from "three";
@@ -12,7 +12,7 @@ import {
 } from "../components/curve";
 
 export default function Model({ scrollProgress, cameraScrollCurve, ...props }) {
-  const { nodes, materials } = useGLTF("/models/Panda.glb");
+  const { nodes, materials } = useModel("/models/Panda.glb");
   const regular = useKTX2Texture("/textures/regular.ktx2");
   const samurai = useKTX2Texture("/textures/samurai.ktx2");
   const pirate = useKTX2Texture("/textures/pirate.ktx2");
@@ -155,4 +155,4 @@ export default function Model({ scrollProgress, cameraScrollCurve, ...props }) {
   );
 }
 
-useGLTF.preload("/models/Panda.glb");
+useModel.preload("/models/Panda.glb");

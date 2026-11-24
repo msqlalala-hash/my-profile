@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useModel } from "../../lib/useModel";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
@@ -7,7 +7,7 @@ import { gsap } from "gsap";
 import * as THREE from "three";
 
 export default function Model({ scrollProgress, ...props }) {
-  const { nodes, materials } = useGLTF("/models/scene_3.glb");
+  const { nodes, materials } = useModel("/models/scene_3.glb");
 
   const pyramidDoorRef = useRef();
   const lastScrollState = useRef(null);
@@ -154,4 +154,4 @@ export default function Model({ scrollProgress, ...props }) {
   );
 }
 
-useGLTF.preload("/models/scene_3.glb");
+useModel.preload("/models/scene_3.glb");

@@ -1,8 +1,10 @@
 # 😊 Mr. Panda's Psychologically Safe Portfolio 🐼
 
-### ▶ **[打开成品 · Live demo](https://3000-bd30f96f487e4e86915dddf816663acd.e2b.sh4.sandbox.cloudstudio.club/)**
+### ▶ **[打开成品 · Live demo](https://msqlalala-hash.github.io/my-profile/)**
 
 手绘纸艺 3D 作品集（实时 WebGL 渲染，非视频）。滚轮 / 拖动 / 方向键沿纸墙穿行，每个场景贴出一张简历便签。
+
+> 部署在 GitHub Pages：`gh-pages` 分支存放构建产物，源码在 `main`。首次打开需下载约 16MB 模型与贴图。
 
 > 原版站点：[mr-pandas-psychologically-safe-portfolio.com](https://www.mr-pandas-psychologically-safe-portfolio.com/) ｜ [Article](https://tympanus.net/codrops/2025/12/30/the-increasing-importance-of-psychological-safety-and-self-awareness-for-creative-work/?_thumbnail_id=107253) ｜ [Tutorial](https://www.youtube.com/watch?v=zyWD2E8AHCg&feature=youtu.be)
 
@@ -100,6 +102,19 @@ anchors are commented in that file.
 - `Esc` hides the résumé note; the `RÉSUMÉ` tab brings it back (focus returns).
 - `prefers-reduced-motion: reduce` → the scene freezes on a composed frame and
   the camera jumps instead of easing; no idle wobble.
+
+## Deploy (GitHub Pages)
+
+The live site is served from the `gh-pages` branch at
+`https://msqlalala-hash.github.io/my-profile/`. Runtime asset URLs are written as
+root-absolute paths (`/textures/…`), so they go through `asset()` in
+`src/lib/asset.js`, which prefixes `import.meta.env.BASE_URL` — a no-op at `/`,
+`/my-profile/` on Pages. `BrowserRouter` uses the same base.
+
+```bash
+npx vite build --base=/my-profile/ --outDir pages-build
+# copy pages-build/* to the root of the gh-pages branch, then push
+```
 
 ## Reconstruction notes
 

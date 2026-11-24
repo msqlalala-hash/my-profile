@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useModel } from "../../lib/useModel";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
 
@@ -7,7 +7,7 @@ import * as THREE from "three";
 import { sceneTime, sceneDelta, motion } from "../../lib/motion";
 
 export default function Model({ scrollProgress, ...props }) {
-  const { nodes, materials } = useGLTF("/models/Moving_Extras.glb");
+  const { nodes, materials } = useModel("/models/Moving_Extras.glb");
 
   const material = useKTX2Texture("/textures/Moving_extras.ktx2");
   const dirtMaterial = useKTX2Texture("/textures/dirt.ktx2");
@@ -502,4 +502,4 @@ export default function Model({ scrollProgress, ...props }) {
   );
 }
 
-useGLTF.preload("/models/Moving_Extras.glb");
+useModel.preload("/models/Moving_Extras.glb");

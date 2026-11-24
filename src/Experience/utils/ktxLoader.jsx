@@ -2,6 +2,7 @@ import { KTX2Loader } from "three/addons/loaders/KTX2Loader.js";
 import * as THREE from "three";
 import { useLoader, useThree } from "@react-three/fiber";
 import { useEffect, useMemo } from "react";
+import { asset } from "../../lib/asset";
 
 export const useKTX2Texture = (
   textureUrl,
@@ -11,8 +12,8 @@ export const useKTX2Texture = (
 ) => {
   const { gl } = useThree();
 
-  const texture = useLoader(KTX2Loader, textureUrl, (loader) => {
-    loader.setTranscoderPath("/basis/");
+  const texture = useLoader(KTX2Loader, asset(textureUrl), (loader) => {
+    loader.setTranscoderPath(asset("/basis/"));
     loader.detectSupport(gl);
   });
 
@@ -37,6 +38,6 @@ export const useKTX2Texture = (
 };
 
 useKTX2Texture.preload = (url) =>
-  useLoader.preload(KTX2Loader, url, (loader) => {
-    loader.setTranscoderPath("/basis/");
+  useLoader.preload(KTX2Loader, asset(url), (loader) => {
+    loader.setTranscoderPath(asset("/basis/"));
   });
